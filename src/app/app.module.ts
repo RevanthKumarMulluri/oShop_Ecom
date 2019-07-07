@@ -20,6 +20,7 @@ import { AdminProductsComponent } from './admin/admin-products/admin-products.co
 import { AdminOrdersComponent } from './admin/admin-orders/admin-orders.component';
 import { LoginComponent } from './login/login.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthGuard } from './auth-guard.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
       {path: '', component: HomeComponent},
       {path: 'products', component: ProductsComponent},
       {path: 'shopping-cart', component: ShoppingCartComponent},
-      {path: 'check-out', component: CheckOutComponent},
+      {path: 'check-out', component: CheckOutComponent,  canActivate : [AuthGuard]},
       {path: 'order-success', component: OrderSuccessComponent},
       {path: 'my/orders', component: MyOrdersComponent},
       {path: 'login', component: LoginComponent},
