@@ -9,15 +9,15 @@ import { Observable } from 'rxjs';
 export class AuthGuard implements CanActivate {
 
   constructor(private auth : AuthService, private router : Router) { }
-user : any;
-  canActivate() : boolean{
-     this.auth.user$.map(user => {
-        this.user= user;
-     });
-     if (this.user) return true; 
-     else{
-          this.router.navigate(['/login']);
-          return false;
-     } 
-  }
+
+  canActivate(route , state:RouterStateSnapshot) {
+       return this.auth.user$.map(user => {
+           
+            if(user)return true;
+            this.router.navigate(['/login'],{queryParams:{returnUrl:state.url}});
+            return false;
+       });
+       
+            
+     }
 }
