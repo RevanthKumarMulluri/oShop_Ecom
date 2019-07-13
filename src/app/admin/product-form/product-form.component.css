@@ -1,0 +1,9 @@
+.form-group{
+  width: 80%;
+  padding: 12px 20px;
+  padding-left: 80px;
+  left: 30%;
+  margin: 20px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
