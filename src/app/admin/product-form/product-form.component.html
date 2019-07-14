@@ -39,24 +39,24 @@
                     
                     <div class="form-group">
                             <label for="imageurl">Image URL</label>
-                            <input #imageurl="ngModel" [(ngModel)]="product.imageurl" name="imageurl" id="imageurl" type="text" class="form-control" required url/>
-                            <div class="alert alert-danger" *ngIf="imageurl.touched && imageurl.invalid">
-                                <div *ngIf="imageurl.errors.required">Image URL is Required </div>
-                                <div *ngIf="imageurl.errors.url">Please enter a valid URL</div>
+                            <input #imageUrl="ngModel" [(ngModel)]="product.imageUrl" name="imageUrl" id="imageUrl" type="text" class="form-control" required url/>
+                            <div class="alert alert-danger" *ngIf="imageUrl.touched && imageUrl.invalid">
+                                <div *ngIf="imageUrl.errors.required">Image URL is Required </div>
+                                <div *ngIf="imageUrl.errors.url">Please enter a valid URL</div>
                             </div>
                     </div>
                     
+                    
                     <div>
-                       <button class="btn btn-primary" type="submit">Save</button>
+                         <button class="btn btn-primary" type="submit">Save</button>
+                        <button class="btn btn-danger" tye="button" (click)="delete()">Delete</button>
                     </div>
                       
-                     
-                     
-                </form>
+             </form>
     </div>
     <div class="col-md-6">
         <div class="card" style="width: 18rem;">
-            <img [src]="product.imageurl" *ngIf="product.imageurl" class="card-img-top">
+            <img [src]="product.imageUrl" *ngIf="product.imageUrl" class="card-img-top">
                <div class="card-body">
                     <h5 class="card-title">{{ product.title }}</h5>
                     <p class="card-text">{{ product.price | currency:'CAD' : true }}</p>
