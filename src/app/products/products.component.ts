@@ -17,15 +17,16 @@ categorie$;
 category : string;
   constructor(private productservice : ProductService,private categories : CategoryService, 
     private route : ActivatedRoute) { 
-      this.productservice.getproducts().switchMap(products =>{
+          this.productservice.getproducts().subscribe(products =>{
             this.products=products;
             this.categorie$ = this.categories.getCategories();
-             return route.queryParamMap;
-          }).subscribe(params => {
+           
+           this.route.queryParamMap.subscribe(params => {
                         this.category = params.get('category');
                         this.filteredProducts = (this.category) ? this.products.filter(p => p.category===this.category) : 
                                                        this.products;
-                });
+            });
+          });
            
   }
 
