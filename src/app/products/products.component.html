@@ -1,7 +1,7 @@
 <div class="row">
     <div class="col-3">
             <div class="list-group">
-                <a routerLink = "/" class="list-group-item">
+                <a routerLink = "/" class="list-group-item" [class.active]="!category">
                     All Categories
                 </a>
                 <a *ngFor="let c of categorie$ | async; let j=index;" 
