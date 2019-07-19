@@ -1,1 +1,37 @@
-<p>products works!</p>
+<div class="row">
+    <div class="col-3">
+            <div class="list-group">
+                <a routerLink = "/" class="list-group-item">
+                    All Categories
+                </a>
+                <a *ngFor="let c of categorie$ | async; let j=index;" 
+                  routerLink = "/" [queryParams]="{category : c.$key}" 
+                  class="list-group-item"
+                  [class.active]="category ===c.$key">
+                         {{c.name}}
+                </a>
+            </div>
+    </div>
+    
+    <div class="col"> 
+      <div class="row">  
+        <ng-container *ngFor="let p of filteredProducts;let i=index;">
+            <div class="col">
+                    <div    class="col-md-6">
+                            <div  class="card" style="width: 15rem;">
+                                <img  [src]="p.imageUrl" class="card-img-top">
+                                   <div class="card-body">
+                                        <h5 class="card-title"> {{p.title}} </h5>
+                                        <p class="card-text">{{p.price | currency:'CAD' : true}}</p>
+                                        <a href="#" class="btn btn-primary">Add to Cart</a>
+                                   </div>
+                            </div>
+                    </div>
+                        
+            </div>
+            <div *ngIf="(i+1) % 2 === 0" class="w-100"></div>
+       </ng-container>
+      </div>
+   </div>
+</div>
+
