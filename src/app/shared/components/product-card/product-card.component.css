@@ -1,0 +1,10 @@
+.card-footer{
+    padding : 0;
+}
+.card{
+    margin-bottom: 10px;
+    width : 15rem;
+}
+.card-footer button{
+    cursor: pointer;
+}
